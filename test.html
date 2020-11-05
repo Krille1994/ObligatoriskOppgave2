@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.11.3.css">
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.11.3.js"></script>
+    <script src="lib.js"></script>
+    <script>
+        //modell 
+            let chosenBar;
+            let numbers;
+
+        QUnit.test('velg samme stolpe', function(assert) {
+            chosenBar = 3;
+            let actual = chooseBar(3);
+            let expected = null;
+            assert.equal(actual, expected);
+            });
+        QUnit.test('velg ny stolpe', function(assert) {
+            chosenBar = 3;
+            let actual = chooseBar(2);
+            let expected = 2;
+            assert.equal(actual, expected);
+            });
+        QUnit.test('slette en stolpe', function(assert) {
+            numbers = [7, 3, 1, 5, 8,];
+            chosenBar = 3;
+            let actual = removeBar();
+            let expected = [7, 3, 1, 8,];
+            assert.deepEqual(actual, expected);
+            });
+        QUnit.test('endre en stolpe', function(assert) {
+            numbers = [7, 3, 1, 5, 8,];
+            chosenBar = 3;
+            let actual = changeValue(4);
+            let expected = [7, 3, 1, 4, 8,];
+            assert.deepEqual(actual, expected);
+            });
+        QUnit.test('legge til en stolpe', function(assert) {
+            numbers = [7, 3, 1, 5, 8,];
+            let actual = createNewBar(4);
+            let expected = [7, 3, 1, 5, 8, 4];
+            assert.deepEqual(actual, expected);
+            });
+
+    </script>
+</body>
+</html>
